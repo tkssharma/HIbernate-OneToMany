@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection properties - Driver, URL, user, password -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/hibernate</property>
+		<property name="connection.username">root</property>
+
+
+
+		<!-- Outputs the SQL queries, should be disabled in Production -->
+		<property name="show_sql">true</property>
+
+		<!-- Dialect is required to let Hibernate know the Database Type, MySQL, 
+			Oracle etc Hibernate 4 automatically figure out Dialect from Database Connection 
+			Metadata -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<property name="hbm2ddl.auto">create</property>
+
+
+		<!-- Mapping with model class containing annotations -->
+		<mapping class="com.learning.Hibernate.model.Employee" />
+		<mapping class="com.learning.Hibernate.model.Address" />
+	</session-factory>
+</hibernate-configuration>
